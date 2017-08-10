@@ -1,0 +1,125 @@
+##########################################################
+##################  所有profile共有的配置  #################
+##########################################################
+
+###################  配置  ###################
+gateway:
+  swagger-open: true #是否开启swagger (true/false)
+  kaptcha-open: false #是否开启登录时验证码 (true/false)
+  session-open: false #是否开启session超时验证（受影响的类SessionTimeoutInterceptor） (true/false)
+  #file-upload-path: d:/tmp  #文件上传目录(不配置的话为java.io.tmpdir目录)
+  muti-datasource-open: false #是否开启多数据源(true/false)
+  spring-session-open: false #是否开启spring session,如果是多机环境需要开启(true/false)
+  session-invalidate-time: 1800 #session失效时间(只在单机环境下生效，多机环境在SpringSessionConfig类中配置) 单位：秒
+  session-validation-interval: 900 #多久检测一次失效的session(只在单机环境下生效) 单位：秒
+
+###################  项目启动端口  ###################
+server:
+  port: 8081
+
+
+###################  MyBatis 配置  ###################
+mybatis:
+    type-aliases-package: com.common.entity
+    mapper-locations: classpath:com/mapper/*.xml
+
+
+###################  MyBatis 分页插件配置  ###################
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+
+
+###################  beetl配置  ###################
+beetl:
+  delimiter-statement-start: \@   #开始结束标签(yaml不允许@开头)
+  delimiter-statement-end: null
+  resource-tagroot: common/tags   #自定义标签文件Root目录和后缀
+  resource-tagsuffix: tag
+  resource-auto-check: true #是否检测文件变化,开发用true合适，但线上要改为false
+
+
+###################  spring配置  ###################
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password:
+  profiles:
+    active: dev
+  mvc:
+    static-path-pattern: /static/**
+    view:
+      prefix: /WEB-INF/view
+  http:
+    converters:
+      preferred-json-mapper: fastjson
+    multipart:
+      max-request-size: 100MB #最大请求大小
+      max-file-size: 100MB #最大文件大小
+  devtools:
+    restart:
+      enabled: true #是否开启开发者工具（true/false）
+      additional-paths: src/main/java
+      exclude: static/**,WEB-INF/view/**
+    rsa:
+      publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrYlYe7NoqO/2X7CbkWUF89Ovyz5RU2lPFU4X64yMvzEODc1ma6TWICvxKIt9BDWz2kaXNmk+4TiYJ1nb93yyxpOyAVYhYMc8Fe15h+Su5RdgLIVCf/G7eJHJA2LdW9O9rmRYWpXpUL3rFrlk65ljnMeL3oBaCQ396UzMbaf9VjwIDAQAB
+      privateKey: MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKtiVh7s2io7/ZfsJuRZQXz06/LPlFTaU8VThfrjIy/MQ4NzWZrpNYgK/Eoi30ENbPaRpc2aT7hOJgnWdv3fLLGk7IBViFgxzwV7XmH5K7lF2AshUJ/8bt4kckDYt1b072uZFhalelQvesWuWTrmWOcx4vegFoJDf3pTMxtp/1WPAgMBAAECgYA+Ili2vYga58T431T6VKG5e9JPJZLRcJYOZEmeu9p16chQT/GciBAwUktFVX87RnLKseM6t0dPuoVv66EYSWEaLHJc81sOMT7ahAr96zL6sQJARGAqsBvO9FW8oSBOQLDY6UTWx+yVl7YWxJ0qsw76NGTfmoc3/1MIo/pMn8TUAQJBAPgMCY0U1TzCYXwTztKpW2toE53K0OWF+LGEkDyGsMLpNUyi+5HYFIQN6usitYOZAXwOEwPEU5zlJBOVWLwxQ28CQQCw4Q1kCJzbDNvSEM2GLSRnfF1/YXHSvtfUGzDLdURwcHk/460gWru+m2qX5ooJsRnohj1l8cnneatVemn2MX/hAkEA7I1uPmFzynIFzfKF91kTmiazLnRRK9LMDV9CvrYktHz7G48DI19SkW1Eb+G2AT5VsB0r/ReqNaJA+XwgF7lTeQJAV6ymO5B9V6LvDxgfF8QmiFk/6xT9G45XYx67OA5/hxBpOX78YM44w4k78+FlSNqNUhHAO1j3UJKhl7Qe89ajYQJANAOkPb9m9LMznuY5V94RQNoyW64fjLEMzYMWlPF2blcNVoVcs+NW3g+M7ZcpaPK1qsQWnJXT8ZKfbEsvcVr4HQ=
+---
+###################  oauth配置  ###################
+security:
+  oauth2:
+    resource:
+      id: oauth2-server
+
+
+##########################################################
+###################  开发环境的profile  ###################
+##########################################################
+spring:
+  profiles: dev
+  datasource:
+      url: jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: 123456
+      filters: log4j,wall,mergeStat
+  redis:
+    host: 127.0.0.1
+    port: 6379
+#多数据源
+biz:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password:
+
+logging:
+  level.root: debug
+  level.com: debug
+  path: logs/
+  file: .log
+
+
+---
+
+##########################################################
+###################  正式环境的profile  ###################
+##########################################################
+spring:
+  profiles: produce
+  datasource:
+      url: jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: 123456
+      filters: log4j,wall,mergeStat
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+logging:
+  level.root: warn
+  path: logs/
+  file: .log
+
