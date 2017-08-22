@@ -5,10 +5,10 @@
 <!-- Mybatis生成Mapper配置文件 mvn mybatis-generator:generate -Dmybatis.generator.configurationFile=src/test/resources/mybatis-generatorConfig.xml -->
 <generatorConfiguration>
     <!--<classPathEntry-->
-            <!--location="E:/mvn-localRepository/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar"/>-->
+    <!--location="E:/mvn-localRepository/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar"/>-->
 
-     <classPathEntry
-             location="D:\maven\jar\mysql\mysql-connector-java\5.1.43\mysql-connector-java-5.1.43.jar"/>
+    <classPathEntry
+            location="D:\maven\jar\mysql\mysql-connector-java\5.1.43\mysql-connector-java-5.1.43.jar"/>
 
     <context id="DB2Tables" targetRuntime="MyBatis3"
              defaultModelType="flat">
@@ -41,7 +41,6 @@
                              targetPackage="com.common.mapper" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
-
 
 
         <table tableName="oauth_resource" domainObjectName="OauthResource"

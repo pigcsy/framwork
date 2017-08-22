@@ -2,7 +2,6 @@ package com.service;
 
 
 import com.domain.oauth.AdminUserVo;
-import com.domain.oauth.MetaDataSource;
 import com.domain.oauth.OauthSystemVo;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +16,7 @@ public interface OauthService {
 
     AdminUserVo queryByUserName(String userName);
 
-    public List<MetaDataSource> queryAllResourcesByRole();
+    // public List<MetaDataSource> queryAllResourcesByRole();
 
 
 }

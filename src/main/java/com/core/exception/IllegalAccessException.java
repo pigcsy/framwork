@@ -1,9 +1,6 @@
 package com.core.exception;
 
 
-import com.core.exception.ErrorHolder;
-import com.core.exception.GatewayException;
-
 public class IllegalAccessException extends GatewayException {
 
     public IllegalAccessException(String message, Throwable cause) {

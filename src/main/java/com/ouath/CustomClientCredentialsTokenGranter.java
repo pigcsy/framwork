@@ -5,8 +5,8 @@ import com.common.constant.SystemEn;
 import com.core.security.CustomClientAuthentication;
 import com.core.security.DefaultCurrentPrincipal;
 import com.domain.oauth.OauthSystemVo;
-import com.service.OauthService;
 import com.google.common.collect.Lists;
+import com.service.OauthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -45,7 +45,7 @@ public class CustomClientCredentialsTokenGranter extends ClientCredentialsTokenG
     @Override
     protected OAuth2Authentication getOAuth2Authentication(ClientDetails client, TokenRequest tokenRequest) {
         // 合作方信息
-        OauthSystemVo oauthSystemVo =oauthService.queryDetailsByClientId(client.getClientId());
+        OauthSystemVo oauthSystemVo = oauthService.queryDetailsByClientId(client.getClientId());
 
         DefaultCurrentPrincipal principal = new DefaultCurrentPrincipal(oauthSystemVo.getSystemId(),
                 oauthSystemVo.getSystemName(), oauthSystemVo.getSystemId(), oauthSystemVo.getSystemType(),

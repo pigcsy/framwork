@@ -1,7 +1,8 @@
 package com.mapper;
 
 import com.common.entity.UserRole;
+import com.core.mybatis.MyMapper;
 
-public interface UserRoleMapper extends tk.mybatis.mapper.common.Mapper<UserRole> {
+public interface UserRoleMapper extends MyMapper<UserRole> {
 
 }

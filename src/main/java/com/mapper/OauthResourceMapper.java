@@ -1,7 +1,8 @@
 package com.mapper;
 
 import com.common.entity.OauthResource;
+import com.core.mybatis.MyMapper;
 
-public interface OauthResourceMapper extends tk.mybatis.mapper.common.Mapper<OauthResource> {
+public interface OauthResourceMapper extends MyMapper<OauthResource> {
 
 }

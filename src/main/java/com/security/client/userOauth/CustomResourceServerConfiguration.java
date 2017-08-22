@@ -31,7 +31,7 @@ public class CustomResourceServerConfiguration extends DefaultResourceServerConf
 
     @Bean(name = "adminOauth2ClientConfig")
     @Primary
-    @ConfigurationProperties( ignoreUnknownFields = false,prefix = "security.oauth2")
+    @ConfigurationProperties(ignoreUnknownFields = false, prefix = "security.oauth2")
     public Oauth2ClientConfig getAdminOauth2ClientConfig() {
         return new Oauth2ClientConfig();
     }

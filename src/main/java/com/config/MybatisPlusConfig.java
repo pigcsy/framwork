@@ -6,7 +6,6 @@ import com.config.properties.DruidProperties;
 import com.config.properties.MutiDataSourceProperties;
 import com.core.datascope.DataScopeInterceptor;
 import com.core.mutidatesource.DynamicDataSource;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;

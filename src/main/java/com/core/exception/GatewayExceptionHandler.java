@@ -31,7 +31,7 @@ public class GatewayExceptionHandler extends ResponseEntityExceptionHandler {
     @SuppressWarnings({"rawtypes", "unchecked"})
     @ExceptionHandler(value = {GatewayException.class})
     public final ResponseEntity<ErrorResult> handleGatewayException(GatewayException throwable,
-                                                                  HttpServletRequest request) {
+                                                                    HttpServletRequest request) {
         logger.error("", throwable);
         RequestAttributes requestAttributes = new ServletRequestAttributes(request);
         errorAttributes.getErrorAttributes(requestAttributes, false).get("javax.servlet.error.status_code");

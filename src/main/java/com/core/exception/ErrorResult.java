@@ -1,8 +1,6 @@
 package com.core.exception;
 
 import com.alibaba.fastjson.JSON;
-import com.core.exception.ErrorHolder;
-import com.core.exception.GatewayException;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 

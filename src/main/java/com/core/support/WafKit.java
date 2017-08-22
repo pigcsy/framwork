@@ -20,16 +20,16 @@ import java.util.regex.Pattern;
 /**
  * Web防火墙工具类
  * <p>
+ *
  * @author hubin
  * @Date 2014-5-8
  */
 public class WafKit {
 
     /**
-     * @Description 过滤XSS脚本内容
-     * @param value
-     * 				待处理内容
+     * @param value 待处理内容
      * @return
+     * @Description 过滤XSS脚本内容
      */
     public static String stripXSS(String value) {
         String rlt = null;
@@ -48,7 +48,7 @@ public class WafKit {
 
             // Avoid anything in a src='...' type of expression
             /*scriptPattern = Pattern.compile("src[\r\n]*=[\r\n]*\\\'(.*?)\\\'", Pattern.CASE_INSENSITIVE
-					| Pattern.MULTILINE | Pattern.DOTALL);
+                    | Pattern.MULTILINE | Pattern.DOTALL);
 			rlt = scriptPattern.matcher(rlt).replaceAll("");
 
 			scriptPattern = Pattern.compile("src[\r\n]*=[\r\n]*\\\"(.*?)\\\"", Pattern.CASE_INSENSITIVE
@@ -92,20 +92,18 @@ public class WafKit {
     }
 
     /**
-     * @Description 过滤SQL注入内容
-     * @param value
-     * 				待处理内容
+     * @param value 待处理内容
      * @return
+     * @Description 过滤SQL注入内容
      */
     public static String stripSqlInjection(String value) {
         return (null == value) ? null : value.replaceAll("('.+--)|(--)|(%7C)", ""); //value.replaceAll("('.+--)|(--)|(\\|)|(%7C)", "");
     }
 
     /**
-     * @Description 过滤SQL/XSS注入内容
-     * @param value
-     * 				待处理内容
+     * @param value 待处理内容
      * @return
+     * @Description 过滤SQL/XSS注入内容
      */
     public static String stripSqlXSS(String value) {
         return stripXSS(stripSqlInjection(value));

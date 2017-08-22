@@ -25,7 +25,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @ConditionalOnProperty(prefix = "gateway", name = "swagger-open", havingValue = "true")
 @ComponentScan(value = {"com.controller"})
-public class SwaggerConfig extends WebMvcConfigurerAdapter{
+public class SwaggerConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("swagger-ui.html")

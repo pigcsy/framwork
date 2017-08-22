@@ -1,10 +1,11 @@
 package com.mapper;
 
 import com.common.entity.OauthSystem;
+import com.core.mybatis.MyMapper;
 import org.apache.ibatis.annotations.Param;
 
-public interface OauthSystemMapper extends tk.mybatis.mapper.common.Mapper<OauthSystem> {
+public interface OauthSystemMapper extends MyMapper<OauthSystem> {
 
 
-    OauthSystem queryDetailsByClientId(@Param(value="clientId") String clientId);
+    OauthSystem queryDetailsByClientId(@Param(value = "clientId") String clientId);
 }

@@ -45,8 +45,8 @@ public class CustomUserDetailService implements UserDetailsService {
         ;
         try {
             String clientId = ((Map<String, Object>) authentication.getDetails()).get("client_id").toString();
-            AdminUserVo staff =oauthService.queryByUserName(username);
-            OauthSystemVo oauthSystemVo =oauthService.queryDetailsByClientId(clientId);
+            AdminUserVo staff = oauthService.queryByUserName(username);
+            OauthSystemVo oauthSystemVo = oauthService.queryDetailsByClientId(clientId);
             if (staff.getSystemId() != oauthSystemVo.getSystemId().intValue()) {
                 throw new GatewayException("未找到用户");
             }

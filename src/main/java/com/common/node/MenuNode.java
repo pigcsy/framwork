@@ -306,6 +306,7 @@ public class MenuNode implements Comparable {
 
     /**
      * 得到子节点列表
+     *
      * @author csy
      */
     private List<MenuNode> getChildList(List<MenuNode> list, MenuNode node) {

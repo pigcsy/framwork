@@ -130,12 +130,12 @@ public class DateUtil {
     }
 
     /**
-     * @Title: compareDate
-     * @Description:(日期比较，如果s>=e 返回true 否则返回false)
      * @param s
      * @param e
      * @return boolean
      * @throws
+     * @Title: compareDate
+     * @Description:(日期比较，如果s>=e 返回true 否则返回false)
      * @author luguosui
      */
     public static boolean compareDate(String s, String e) {
@@ -293,6 +293,7 @@ public class DateUtil {
 
     /**
      * 格式化Oracle Date
+     *
      * @param value
      * @return
      */

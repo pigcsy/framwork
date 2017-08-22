@@ -22,12 +22,11 @@ import org.springframework.context.annotation.Import;
 @Import(GatewayExceptionHandler.class)
 public class GatewayApplication extends DefaultSpringbootInitializer {
 
-
-
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class, args);
         log.info("Application is success!");
     }
+
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(GatewayApplication.class);

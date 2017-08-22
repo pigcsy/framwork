@@ -45,7 +45,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(HttpMethod.OPTIONS).permitAll()
-                .antMatchers( "/login","/oauth/token")
+                .antMatchers("/login", "/oauth/token")
                 .permitAll().anyRequest().authenticated().and().cors().and().csrf().disable();
         http.addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
     }
