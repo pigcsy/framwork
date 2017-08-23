@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Import;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 
 /**
@@ -19,6 +20,7 @@ import org.springframework.context.annotation.Import;
 @SpringBootApplication
 @Slf4j
 @MapperScan(value = {"com.mapper"})
+@EnableAsync
 @Import(GatewayExceptionHandler.class)
 public class GatewayApplication extends DefaultSpringbootInitializer {
 

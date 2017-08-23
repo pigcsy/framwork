@@ -28,8 +28,10 @@ public class OauthServiceImpl extends BaseService implements OauthService {
 
     @Autowired
     UserBaseMapper userBaseMapper;
+
     @Autowired
     UserRoleRelationMapper userRoleRelationMapper;
+
     @Autowired
     OauthSystemMapper oauthSystemMapper;
 

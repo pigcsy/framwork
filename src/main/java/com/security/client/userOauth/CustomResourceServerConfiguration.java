@@ -26,7 +26,7 @@ public class CustomResourceServerConfiguration extends DefaultResourceServerConf
     @Autowired
     SecurityMetadataSource securityMetadataSource;
 
-    @Value(value = "${security.oauth2.resource.id}")
+    @Value("${security.oauth2.resource.name}")
     private String resourceId;
 
     @Bean(name = "adminOauth2ClientConfig")

@@ -16,7 +16,8 @@ import org.springframework.security.oauth2.provider.token.store.redis.RedisToken
 public class DefaultResourceServerConfiguration extends ResourceServerConfigurerAdapter {
     @Autowired
     RedisConnectionFactory connectionFactory;
-    @Value(value = "${security.oauth2.resource.id:}")
+
+    @Value(value = "${security.oauth2.resource.id}")
     private String resourceId;
 
     @Override
